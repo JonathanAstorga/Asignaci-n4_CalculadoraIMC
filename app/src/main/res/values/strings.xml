@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Asignacion04_Calculadora_IMC</string>
+    <string name="estatura">Estatura</string>
+    <string name="peso">Peso</string>
+    <string name="IMC">Calcular IMC</string>
+    <string name="etiquetaIMC">Tu IMC es:</string>
+    <string name="espera">Click en Calcular IMC para tu IMC</string>
+    <string name="limpiar">Limpiar</string>
+</resources>
