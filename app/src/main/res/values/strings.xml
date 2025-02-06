@@ -6,4 +6,9 @@
     <string name="etiquetaIMC">Tu IMC es:</string>
     <string name="espera">Click en Calcular IMC para tu IMC</string>
     <string name="limpiar">Limpiar</string>
+    <string name="indica1">Blanco: Bajo de peso</string>
+    <string name="indica2">Verde: Peso normal</string>
+    <string name="indica3">Naranja: Sobrepeso</string>
+    <string name="indica4">Rojo: Obesidad</string>
+    <string name="siEs">Si tu resultado es</string>
 </resources>

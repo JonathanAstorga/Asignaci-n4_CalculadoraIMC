@@ -1,5 +1,6 @@
 package astorga.jonathan.asignacion04_calculadora_imc
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -15,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     var peso: Double = 0.0
     var estatura: Double = 0.0
     var resultado: String = ""
+    var colorResultado = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,8 +39,10 @@ class MainActivity : AppCompatActivity() {
             var bandera: Boolean = sacarPeso_Y_Estatura()
             if (bandera == true){
                 var resultadoNumero: Double = calcularIMC(peso, estatura)
+                identificaColorResultado(resultadoNumero)
                 btnCalcular.visibility = View.INVISIBLE
                 btnLimpiar.visibility = View.VISIBLE
+                resul.setTextColor(Color.parseColor(colorResultado))
                 resul.setText(resultadoNumero.toString())
             }
             else{
@@ -52,6 +56,7 @@ class MainActivity : AppCompatActivity() {
             resul.setText("Click en Calcular IMC para tu IMC")
             edtPeso.setText("")
             edtEstatura.setText("")
+            resul.setTextColor(Color.parseColor("#FFFFFFFF"))
             btnLimpiar.visibility = View.INVISIBLE
             btnCalcular.visibility = View.VISIBLE
 
@@ -85,7 +90,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun verificaValores(peso: Double, estatura: Double): Boolean {
-        if(peso > 0 || estatura > 0){
+        if(peso > 0 && estatura > 0){
             return true
         }
         else{
@@ -98,5 +103,22 @@ class MainActivity : AppCompatActivity() {
     fun reiniciarValores(){
         peso = 0.0
         estatura = 0.0
+        colorResultado = ""
+        resultado = ""
+    }
+
+    fun identificaColorResultado(peso: Double){
+        if(peso >= 18.5 && peso < 25.0){
+            colorResultado = "#4CAF50"
+        }
+        else if (peso >= 25.0 && peso < 30.0){
+            colorResultado = "#FF5722"
+        }
+        else if(peso > 30.0){
+            colorResultado = "#CF0101"
+        }
+        else{
+            colorResultado = "#FFFFFFFF"
+        }
     }
 }
